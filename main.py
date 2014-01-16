@@ -1,8 +1,3 @@
-__author__ = "Zabeel Bashir"
-__copyright__ = "Copyright (C) 2013 SensorFlock"
-__revision__ = "$Id$"
-__version__ = "0.1"
-
 import signal
 import pika
 import threading
@@ -92,7 +87,6 @@ def main():
 	global amqp_queue
 	amqp_queue = c_filter_amqp_queue()
 
-	_print_header()
 
 	t0 = serial_action()
 	t0.start()
@@ -106,16 +100,6 @@ def main():
 	t3 = amqp_action()
 	t3.start()
 
-def _print_header():
-	_marker = '-------------------------------------------'
-        _n = '\n'
-	print _marker
-	print "Process name:" + __file__ + _n
-	print "Author: " + __author__ + _n 
-	print "Copyright: " + __copyright__ + _n
-	print "Version: " + __version__ + _n
-	print _marker + _n
-	return 
 
 if __name__ == '__main__':
         main()
